@@ -50,7 +50,7 @@ app.use(function(req, res, next){
 });
 
 // Set the Server Up
-var server = app.listen(1337, function() {
+var server = app.listen(5455, function() {
 	var host = server.address().address
 	var port = server.address().port
 	console.log('App is listening at http://%s:%s', host, port)
