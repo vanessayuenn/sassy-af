@@ -19,9 +19,18 @@ app.use('/img', express.static(__dirname + '/assets/img'));
 app.use('/css', expressLess(__dirname + '/assets/less', { compress: true }));
 
 // Index Page
-app.get('/', function (req, res){
+app.get('/', function(req, res) {
 	res.render('index', {
 		title: 'Sassy AF',
+		partials : {
+			head : '/partials/head'
+		}
+	});
+});
+
+app.get('/glitchy-webcam', function(req, res) {
+	res.render('p5video', {
+		title: 'p5 video',
 		partials : {
 			head : '/partials/head'
 		}
@@ -37,10 +46,9 @@ app.use(function(err, req, res, next){
 });
 
 // 404 Error Page.
-app.use(function(req, res, next){
+app.use(function(req, res, next) {
 	var requestedURL = req.protocol + '://' + req.get('Host') + req.url;
 	console.log('Error: 404 - ' + requestedURL );
-	// res.render('error', {title: '404'});
 	res.render('error', {
 		title: 'what are you doing here',
 		partials : {

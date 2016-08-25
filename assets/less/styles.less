@@ -1,11 +1,7 @@
 body {
+  margin: 0;
   background: black;
   color: #fa8072;
-  text-align: center;
-  background-image: url("/img/fallback.gif");
-  background-repeat: repeat;
-  margin: 0;
-  font-size: 20px;
 }
 
 body, h1, h2, h3, h4, h5, h6 {
@@ -20,6 +16,13 @@ body, h1, h2, h3, h4, h5, h6 {
   flex-direction: column;
   justify-content: center;
   align-items: stretch;
+  text-align: center;
+  background-image: url("/img/fallback.gif");
+  background-repeat: repeat;
+  font-size: 20px;
+    &.no-bg {
+      background-image: none;
+    }
 }
 
 h1 {
