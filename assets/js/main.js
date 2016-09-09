@@ -35,9 +35,7 @@ function getGif() {
 }
 
 function setBg(url) {
-  if (url) {
-    document.body.style.backgroundImage = 'url("' + url + '")';
-  }
+  document.body.style.backgroundImage = 'url("' + url || '/img/fallback.gif' + '")';
 }
 
 function handleError(status) {

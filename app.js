@@ -37,6 +37,34 @@ app.get('/glitchy-webcam', function(req, res) {
 	});
 });
 
+app.get('/_resume', function(req, res) {
+	var readFile = require('fs-readfile-promise');
+	var marked = require('marked');
+	marked.setOptions({
+	  gfm: true,
+	  tables: true,
+	  breaks: false,
+	  pedantic: false,
+	  sanitize: false,
+	  smartLists: true,
+	  smartypants: true
+	});
+	readFile(__dirname + '/resume.md', 'utf8')
+	.then(function(data) {
+		res.render('resume', {
+			title: 'Vanessa Yuen Resume',
+			resume: marked(data),
+			partials: {
+				'head': 'partials/head'
+			}
+		});
+	}).catch(function(err) {
+		const errMsg = 'Error on rendering resume: ', err;
+		res.status(500).send({ error: errMsg });
+		console.log(errMsg);
+	});
+})
+
 // All Errors Except for 404 Page.
 app.use(function(err, req, res, next){
 	var requestedURL = req.protocol + '://' + req.get('Host') + req.url;

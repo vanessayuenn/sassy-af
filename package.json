@@ -13,6 +13,8 @@
     "consolidate": "^0.10.0",
     "express": "^4.10.6",
     "express-less": "0.0.6",
+    "fs-readfile-promise": "^3.0.0",
+    "marked": "^0.3.6",
     "mustache": "^1.0.0",
     "nodemon": "^1.10.2"
   }
